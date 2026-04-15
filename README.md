@@ -2,7 +2,7 @@
 
 This repository contains a workflow for estimating building heights from panoramic street-view imagery, building masks, and building footprint data. The project combines geometric projection, visibility-based footprint filtering, mask-derived boundary extraction, and single-corner height search under both fixed-step and multiscale strategies. The current implementation also includes utilities for semantic mask extraction and exporting visibility-filtered building footprints as shapefiles.
 
-## Setup  设置
+## Setup 
 
 Simply clone this repository or download the ZIP file to your local machine, then install the required Python packages using `requirements.txt`:
 
