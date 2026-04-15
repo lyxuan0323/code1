@@ -108,6 +108,14 @@ This step is optional, but it can help remove geometrically unsuitable buildings
 
 Semantic masks are extracted by matching RGB values in a colorized segmentation image. The script includes a predefined dictionary of Cityscapes-like classes and generates per-class masks and visualization overlays. The `building` class is highlighted separately in the visualization stage. 
 
+## Acknowledgements  致谢
+
+We appreciate the open-source contributions of the following projects and repositories, which supported the preprocessing and experimental workflow of this study:
+
+[1] LSAA dataset  
+Panorama rectification for street-view imagery  
+[2] YOSO  
+Semantic segmentation for panoramic street-view images  
 ## Suggested Repository Structure
 
 You can organize the repository like this:
@@ -129,12 +137,3 @@ You can organize the repository like this:
 ├── osm/
 │   └── rectdata.shp
 └── image/
-
-## Acknowledgements  致谢
-
-We appreciate the open-source contributions of the following projects and repositories, which supported the preprocessing and experimental workflow of this study:
-
-[1] LSAA dataset  
-Panorama rectification for street-view imagery  
-[2] YOSO  
-Semantic segmentation for panoramic street-view images  
