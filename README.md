@@ -129,3 +129,12 @@ You can organize the repository like this:
 ├── osm/
 │   └── rectdata.shp
 └── image/
+
+## Acknowledgements  致谢
+
+We appreciate the open-source contributions of the following projects and repositories, which supported the preprocessing and experimental workflow of this study:
+
+[1] LSAA dataset  
+Panorama rectification for street-view imagery  
+[2] YOSO  
+Semantic segmentation for panoramic street-view images  
