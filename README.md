@@ -69,6 +69,41 @@ For each building corner, the bottom point is first projected onto the panoramic
 
 Before height estimation, building footprints can be filtered by line-of-sight visibility and distance threshold. The current implementation uses observer-to-corner sight lines and polygon-crossing tests to identify visible and usable footprints. Exported shapefiles can then be used as filtered geometric input for later processing. 
 
+## How to use  
+
+In this project, building height estimation relies on rectified panoramic images, semantic segmentation results, camera metadata, and building footprint data. Since panorama rectification and semantic segmentation can be produced by different external methods or networks, their codes are not integrated into the main height estimation pipeline. Instead, the raw street-view panoramas are first processed separately, and the resulting files are prepared for subsequent height estimation, for example in `./gsi/area/rectdata`, `./gsi/area/svgdata`, and `./gsi/area/360json`.
+
+### Preprocessing
+
+**Panorama rectification**: use the method provided in the LSAA dataset repository.  
+
+Repository: `https://github.com/ZPdesu/lsaa-dataset`
+
+**Semantic segmentation**: use the YOSO repository to generate segmentation maps or building masks for the rectified panoramas.   
+
+Repository: `https://github.com/hujiecpp/yoso`
+
+The installation and usage of these external repositories can be referred to their official documentation. More details about the preprocessing settings used in this study can be found in our paper. Other rectification or segmentation methods may also be used, but the generated files should follow the directory structure and naming rules expected by this repository.
+
+### Required prepared files  
+
+Before running the height estimation code, the following files should be prepared:
+- rectified panoramic images in `./gsi/area/rectdata`
+- building masks or segmentation-derived building regions in `./gsi/area/svgdata`
+- camera metadata JSON files in `./gsi/area/360json`
+- building footprint shapefile, such as `./osm/rectdata.shp`
+
+### Height estimation  高度估计
+
+When the above files are ready, `Main6_multiscale.py` can be used to estimate building heights.
+
+The script projects building footprint corners into the panoramic image, extracts top and bottom building boundaries from the building mask, and estimates corner heights using fixed-step or multiscale search. The results are exported as Excel files, and optional strategy evaluation results are saved as CSV files.
+
+### Optional footprint filtering  
+
+If visibility-based footprint filtering is needed before height estimation, `visiblefootprint.py` can be used to export visibility-filtered and distance-threshold-filtered building footprint shapefiles.
+This step is optional, but it can help remove geometrically unsuitable buildings and improve the reliability of subsequent height estimation.
+
 ### Mask extraction
 
 Semantic masks are extracted by matching RGB values in a colorized segmentation image. The script includes a predefined dictionary of Cityscapes-like classes and generates per-class masks and visualization overlays. The `building` class is highlighted separately in the visualization stage. 
