@@ -93,7 +93,7 @@ Before running the height estimation code, the following files should be prepare
 - camera metadata JSON files in `./gsi/area/360json`
 - building footprint shapefile, such as `./osm/rectdata.shp`
 
-### Height estimation  高度估计
+### Height estimation 
 
 When the above files are ready, `Main6_multiscale.py` can be used to estimate building heights.
 
