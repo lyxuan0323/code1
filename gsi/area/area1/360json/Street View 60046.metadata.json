@@ -1,0 +1,24 @@
+{
+  "error": false,
+  "finalSaveLocation": "C:\\Users\\lyx\\Desktop\\val\\Street View 6004 6.jpg",
+  "filename": "Street View 6004 6.jpg",
+  "fileSizeMb": 0.376677,
+  "fileType": "jpg",
+  "resolution": {
+    "width": 2048,
+    "height": 1024
+  },
+  "zoomLevel": 2,
+  "panoId": "jm1oPlK2sU2NHc6gOysDKg",
+  "lat": 48.86073533091419,
+  "lng": 2.353234422177702,
+  "date": {
+    "year": 2023,
+    "month": 3
+  },
+  "elevation": 37.18222045898438,
+  "copyright": "Google",
+  "rotation": 343.3218994140625,
+  "dateDownloadedTimestamp": 1768805245815,
+  "index": 6
+}
