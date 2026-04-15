@@ -1,7 +1,16 @@
-#  Statistical Building Height Estimation from Panoramic Imagery Without Camera Parameters
+# Statistical Building Height Estimation from Panoramic Imagery Without Camera Parameters
 
-This repository contains a workflow for estimating building heights from panoramic street-view imagery, building masks, and building footprint data. The project combines geometric projection, visibility-based footprint filtering, mask-derived boundary extraction, and single-corner height search under both fixed-step and multiscale strategies. The current implementation also includes utilities for semantic mask extraction and exporting visibility-filtered building footprints as shapefiles. 
+This repository contains a workflow for estimating building heights from panoramic street-view imagery, building masks, and building footprint data. The project combines geometric projection, visibility-based footprint filtering, mask-derived boundary extraction, and single-corner height search under both fixed-step and multiscale strategies. The current implementation also includes utilities for semantic mask extraction and exporting visibility-filtered building footprints as shapefiles.
 
+## Setup  设置
+
+Simply clone this repository or download the ZIP file to your local machine, then install the required Python packages using `requirements.txt`:
+
+```bash
+git clone https://github.com/lyxuan0323/code1.git
+cd code1
+pip install -r requirements.txt
+```
 ## Overview
 
 The main purpose of this repository is to estimate building heights from panoramic imagery without relying on dense training data. The workflow starts from building footprints and camera metadata, projects footprint corners into panoramic image space, derives roof and bottom boundaries from building masks, and then searches for the height at which a projected corner first reaches the roof boundary in the same image column. A multiscale coarse-to-fine search strategy is implemented and compared with a fixed-step baseline. 
@@ -58,16 +67,6 @@ This script exports filtered footprint shapefiles instead of figures. It:
   - visible building footprints
   - usable building footprints within the distance threshold
   - one combined shapefile with classification attributes
-
-## Method Summary
-
-### Height estimation
-
-For each building corner, the bottom point is first projected onto the panoramic image to define a fixed image column. The bottom boundary and roof boundary are then read from that same column in the building mask. Candidate heights are searched vertically, and the estimated corner height is taken as the first height whose projected row coordinate reaches or crosses the roof boundary in the same column. The repository implements both a fixed-step search and a multiscale coarse-to-fine search for this purpose.
-
-### Visibility filtering
-
-Before height estimation, building footprints can be filtered by line-of-sight visibility and distance threshold. The current implementation uses observer-to-corner sight lines and polygon-crossing tests to identify visible and usable footprints. Exported shapefiles can then be used as filtered geometric input for later processing. 
 
 ## How to use  
 
